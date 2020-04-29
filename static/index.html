@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="index.js"></script> 
+    <head>
+        <meta charset="utf-8">
+        <title>Users</title>
+        <meta name="description" content="APP Web Task 5">
+        <meta name="author" content="SitePoint">
+        <link rel="stylesheet" type="text/css" href="mystyle.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <div align="center">
+    <body >
+
+
+
+
+                 
+    <header ><h2 Style="color:white;">APP Single Page App</h2></header>
+    <div >
+
+            <section id="sectUsers" >
+                <div >
+                    <h2 Style="color:white;">APP ASSIGNMENT</h2>
+                    <div id="tableAndpage">
+                    <div class="w3-bar" Style="width:800px; background: white; border-radius: 25px;" >
+                    <button class="w3-button w3-left "  id="btnPrevious" type="button" onclick="pageDown()"> <- Previous </button>
+                    <button class="w3-button w3-right " id="btnNext" type="button" onclick="pageUp()">Next -> </button>
+                    </div>
+                    <div Style="top: -30px; position: relative; width: 100px; border-radius: 25px;" id="divPageNumber ">Page <span id="pageNumber">1</span> of <span id="totalPages">loading...</span></div>
+
+                    <table id="tblUsers" style="position: relative;">
+                        <tbody><tr  id="tblUserHeader">
+                            <th style=" border-radius: 25px 0px 0px 0px;">User ID</th>
+                            <th>Email</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th style=" border-radius:  0px 25px 0px 0px;">Avatar</th>
+                        </tr>
+                    <!-- <tr  id="user1"><td >1</td><td >george.bluth@reqres.in</td><td>George</td><td>Bluth</td><td ><img src="https://s3.amazonaws.com/uifaces/faces/twitter/calebogden/128.jpg" alt="avatar"></td></tr>
+                    <tr  id="user2"><td >2</td><td >janet.weaver@reqres.in</td><td>Janet</td><td>Weaver</td><td ><img src="https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg" alt="avatar"></td></tr>
+                    <tr  id="user3"><td >3</td><td >emma.wong@reqres.in</td><td>Emma</td><td>Wong</td><td ><img src="https://s3.amazonaws.com/uifaces/faces/twitter/olegpogodaev/128.jpg" alt="avatar"></td></tr>
+                    <tr  id="user4"><td >4</td><td >eve.holt@reqres.in</td><td>Eve</td><td>Holt</td><td ><img src="https://s3.amazonaws.com/uifaces/faces/twitter/marcoramires/128.jpg" alt="avatar"></td></tr>
+                    <tr  id="user5"><td >5</td><td >charles.morris@reqres.in</td><td>Charles</td><td>Morris</td><td ><img src="https://s3.amazonaws.com/uifaces/faces/twitter/stephenmoon/128.jpg" alt="avatar"></td></tr>
+                    <tr  id="user6"><td style="border-radius: 0px 0px 0px 25px ;">6</td><td >tracey.ramos@reqres.in</td><td>Tracey</td><td>Ramos</td><td style="border-radius: 0px 0px 25px 0px ;"><img src="https://s3.amazonaws.com/uifaces/faces/twitter/bigmancho/128.jpg" alt="avatar"></td></tr></tbody></table> -->
+
+                </div>
+            </section>
+        </div>
+            <div id="UpdateAndAdd">
+            <section class="hvr-glow" id="sectUser" style="background:white; " >
+                <div >
+                    <h2 >Edit/Delete User</h2>
+                    <div >
+                        <img id="userAvatar" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="avatar cannot be displayed" width="128px" height="128px">
+                        <form class="w3-container" id="frmUser" >
+                            <label style="" >User ID:</label>
+                            <input class="w3-input" type="text" id="userID" style="width:90%; "><br>
+                            <label>Email:</label>
+                            <input class="w3-input" type="text" id="userEmail" style="width:90%;"><br>
+                            <label>First Name:</label>
+                            <input class="w3-input" type="text" id="userFirstName"  style="width:90%;"><br>
+                            <label>Last Name:</label>
+                            <input class="w3-input" type="text" id="userLastName"  style="width:90%;" value="asd"><br>
+                            <label style="" >Avatar (URL):</label>
+                            <input class="w3-input" type="text" id="Avatar" style="width:90%;" oninput="setImg()"><br>
+                            <div style="padding-top: 20px; padding-bottom: 20px;">
+                                <div class="w3-center">
+                                    <div class="w3-bar">
+                                <button class="w3-button w3-green w3-hover-green hvr-grow" id="btnSaveUser"  type="button" onclick="editUser()">Save Changes</button>
+                                
+                                <button class="w3-button w3-red w3-hover-red hvr-grow" id="btnDeleteUser w3-button w3-hover-purple" type="button" onclick="deleteUser()">Delete User</button>
+                            </div>
+                        </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <section class="hvr-glow" id="sectNewUser" style="background:white; ">
+                <div >
+                    <h2 >New User</h2>
+                    <div >
+                        <img id="NEWuserAvatar" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="avatar cannot be displayed" width="128px" height="128px">
+
+                        <form id="frmNewUser" >
+                            <label style="" >User ID:</label>
+                            <input class="w3-input" type="text" id="NEWuserID" style="width:90%; "><br>
+                            <label>Email:</label>
+                            <input class="w3-input" type="text" id="NEWuserEmail" style="width:90%;"><br>
+                            <label>First Name:</label>
+                            <input class="w3-input" type="text" id="NEWuserFirstName"  style="width:90%;"><br>
+                            <label>Last Name:</label>
+                            <input class="w3-input" type="text" id="NEWuserLastName"  style="width:90%;" value="">
+                            <div style="padding-top: 20px; padding-bottom: 20px
+                            ;">
+                            <label style="" >Avatar (URL):</label>
+                            <input class="w3-input" type="text" id="NewAvatar" style="width:90%; " oninput="setImgNewUser()"><br>
+                            
+                                <button class="w3-button w3-green w3-hover-green hvr-grow" id="btnNewUser" type="button" onclick="newUser()" >New User</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+    </body>
+</html>
